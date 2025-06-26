@@ -6,6 +6,22 @@
 Spring security:
 Provides Basic HTTP authentication
     -  The client sends the username and password in the Authorization header.- Basic <base64(username:password)>
+
+.
+
+🔐 What is CSRF? (Cross-Site Request Forgery)
+How Does CSRF Happen?
+When a user logs in, the browser stores the session ID in a cookie.
+
+For every request in that session, the browser automatically sends the cookie — regardless of where the request came from.
+
+If a malicious site (in another tab or iframe) tricks the browser into making a request (like a POST), the browser still includes the session cookie.
+
+The server can’t tell if it was you or the malicious site — so the action gets executed as if you did it.
+
+#@RestController("/login") - is this right? No it will not set the path , it will set the bean name of the RestController.
+you have to use @RequestMapping("/login") or @PostMapping("/login") to set the path.
+
 # Spring Security with JWT
 
 Required dependencies:

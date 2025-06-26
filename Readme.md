@@ -37,5 +37,12 @@ The AsyncAppender is a non-blocking logging appender that buffers log events in 
 it holds a reference to the actual appender ( file, console etc) and forwards log events to it asynchronously.
 
 
+# HTTP Status Codes
+### 400 means request is reaching your controller, but JSON ↔️ Java conversion failed.
+### 500 means something went wrong in your code, like a NullPointerException or an unhandled exception.
+### 404 means the requested resource was not found, like a missing endpoint or incorrect URL.
+### 200 means everything is fine, and the request was successful.
+
+
 
    
