@@ -44,5 +44,46 @@ it holds a reference to the actual appender ( file, console etc) and forwards lo
 ### 200 means everything is fine, and the request was successful.
 
 
+# Bean 
+We use a @Bean method when we want to override or customize an auto-configured bean provided by Spring Boot or a framework. It lets us take control over how that bean is created."
+
+Spring Boot auto-configures many beans (like SecurityFilterChain, PasswordEncoder, ObjectMapper, RestTemplate, etc.) based on defaults.
+
+But if you define a @Bean of the same type, Spring uses your version instead of the default.
+
+This is called **bean overriding or customizing auto-configuration.**
+
+#@Autowired 
+is used to inject a bean (auto-configured or user-defined) at the point of use — whether into a constructor, field, or method.
+
+
+#Ways to create Beans.
+1. Stereotype Annotations: @Component, @Service, @Repository, @Controller
+   - Automatically scanned and registered by Spring.
+2. @Bean Methods: 
+   - Explicitly define beans in a @Configuration class.
+   - Useful for customizing or overriding auto-configured beans.
+3. Auto-configuration:
+   - Spring Boot automatically configures beans based on classpath dependencies and properties.
+   - These can be injected using @Autowired.
+
+## When to use @Autowired?
+@Autowired is optional only for constructor injection when there's exactly one constructor. 
+In all other cases — like field or setter injection — @Autowired is required.”
+
+## Dependency Graph
+Dependency Graph is a directed graph showing how beans depend on each other.
+It enables spring to :
+1. Decide order of bean creation
+2. Manage their lifecycle and scopes
+2. Inject dependencies correctly
+3. Avoid circular dependencies
+
+
+
+
+
+
+
 
    
