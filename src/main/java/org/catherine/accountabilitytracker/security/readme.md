@@ -59,7 +59,8 @@ jwt-jackson
 Why JWT?
 In Basic Authentication,
     - the base64 encoded string of username and password is sent with every request.
-    - This is not secure as the credentials are sent with every request.
+    - This is not secure as the credentials are sent with every request.( provided only http is used)
+![img.png](img.png)
 In JWT,
     - the user is authenticated once and a token is generated.
     - This token is sent with every request in the Authorization header
@@ -80,4 +81,26 @@ has 3 parts separated by dots (.)
     - Private Claims
 - Signature - used to verify the integrity of the user and the data
 
-  
+# JWT Authentication Flow - 
+In Spring security authentication, the core of authorization happens when we:
+✅ Set the Authentication object in the SecurityContextHolder.
+
+What we do in JWT authentication is:
+1. validate the token
+2. and explicitly set the Authentication object in the SecurityContextHolder. - this is the step that authorizes the user.
+
+
+
+## Steps in token generation:
+1. Key generation - 
+   2. Generate an HMACSHA key using the io.jsonwebtoken.security.Keys class.
+   3. encode the key to Base64 format.
+   4. save it for later use.
+2. Token generation - Build the jwt token using the claims , expiration etc sign it with the key.
+
+## Token verification:
+1. Extract the token from the Authorization header.
+2. Verify the token using the key. ( using Jwt library)
+3. If the token is tampered with or expired, throw an exception.
+4. IF token is valid, extract the user details from the token and set it in the SecurityContextHolder.
+

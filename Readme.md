@@ -1,3 +1,10 @@
+# Servlets and DispatcherServlet
+HttpServlet - part of the Java Servlet API - handles HTTP requests. 
+Spring Boot registers DispatcherServlet - routes incoming HTTP requests to your controller methods.
+
+
+
+
 ## Records in java
 Why - no need of constructor,getter,setter
 immutable

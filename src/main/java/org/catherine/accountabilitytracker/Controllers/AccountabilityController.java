@@ -1,16 +1,14 @@
 package org.catherine.accountabilitytracker.Controllers;
 import lombok.extern.slf4j.Slf4j;
 import org.catherine.accountabilitytracker.Entity.Goal;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
 @RequestMapping("/accountability")
 public class AccountabilityController {
 
+    @ResponseStatus(org.springframework.http.HttpStatus.CREATED)
     @PostMapping("/")
     public void addGoal(@RequestBody Goal goal){
     //log.info("goal is >>>{}", goal);
