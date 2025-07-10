@@ -31,6 +31,17 @@ public class AccountabilityTrackerTest {
                 .contentType("application/json")
                 .content("{\"name\":\"Test Goal\", \"targetDate\":\"2023-12-31\"}"))
                 .andExpect(status().isCreated());
+
+}
+
+    @Test
+    public void testAddGoalFalse() throws Exception {
+
+
+        mockMvc.perform(post("/accountability/")
+                        .contentType("application/json")
+                        .content("{\"name\":\"Test Goal\"}"))
+                .andExpect(status().isBadRequest());
         // This method will be used to test the addGoal endpoint
         // You can use mockMvc to perform requests and verify responses
         // For example, you can create a mock Goal object and send it in a POST request
